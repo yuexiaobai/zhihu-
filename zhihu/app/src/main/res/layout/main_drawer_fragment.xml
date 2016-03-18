@@ -1,0 +1,231 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:yue="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colordrawermenu_unchecked"
+    android:orientation="vertical"
+    tools:context="com.ipcmessenger.example.yuejianchao.zhihu.fragment.MainDrawerFrament">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nav_header_height"
+        android:background="@drawable/side_nav_bar"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
+
+            <com.ipcmessenger.example.yuejianchao.zhihu.widget.CircleImageView
+                android:id="@+id/drawer_head"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerHorizontal="true"
+                yue:src="@mipmap/test" />
+
+            <TextView
+                android:id="@+id/drawer_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/drawer_head"
+                android:layout_centerHorizontal="true"
+                android:paddingTop="@dimen/nav_header_vertical_spacing"
+                android:singleLine="true"
+                android:text="@string/drawer_user_name"
+                android:textAppearance="@style/TextAppearance.Appcompat.Username" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/nav_header_main_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:paddingTop="10dp"
+            android:src="@mipmap/ic_drawer_logout" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"></View>
+    <!--首页-->
+    <RelativeLayout
+        android:id="@+id/drawer_fragment_ll_home"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            android:id="@+id/drawer_fragment_iv_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:src="@mipmap/ic_drawer_home"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:layout_toRightOf="@+id/drawer_fragment_iv_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/drawer_home"
+            android:textAppearance="@style/TextViewMenuList"
+            android:layout_marginLeft="40dp"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
+
+    <!--发现-->
+    <RelativeLayout
+        android:id="@+id/drawer_fragment_ll_explore"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            android:id="@+id/drawer_fragment_iv_explore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:src="@mipmap/ic_drawer_explore"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:layout_toRightOf="@+id/drawer_fragment_iv_explore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/drawer_explore"
+            android:textAppearance="@style/TextViewMenuList"
+            android:layout_marginLeft="40dp"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
+
+    <!--关注-->
+    <RelativeLayout
+        android:id="@+id/drawer_fragment_ll_follow"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            android:id="@+id/drawer_fragment_iv_follow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:src="@mipmap/ic_drawer_follow"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:layout_toRightOf="@+id/drawer_fragment_iv_follow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/drawer_explore"
+            android:textAppearance="@style/TextViewMenuList"
+            android:layout_marginLeft="40dp"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
+
+
+    <!--收藏-->
+    <RelativeLayout
+        android:id="@+id/drawer_fragment_ll_collect"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            android:id="@+id/drawer_fragment_iv_collect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:src="@mipmap/ic_drawer_collect"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:layout_toRightOf="@+id/drawer_fragment_iv_collect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/drawer_collect"
+            android:textAppearance="@style/TextViewMenuList"
+            android:layout_marginLeft="40dp"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
+
+
+    <!--圆桌-->
+    <RelativeLayout
+        android:id="@+id/drawer_fragment_ll_roundtable"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            android:id="@+id/drawer_fragment_iv_roundtable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:src="@mipmap/ic_drawer_roundtable"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:layout_toRightOf="@+id/drawer_fragment_iv_roundtable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/drawer_roundtable"
+            android:textAppearance="@style/TextViewMenuList"
+            android:layout_marginLeft="40dp"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
+
+
+    <!--圆桌-->
+    <RelativeLayout
+        android:id="@+id/drawer_fragment_ll_chat"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            android:id="@+id/drawer_fragment_iv_chat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:src="@mipmap/ic_drawer_chat"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:layout_toRightOf="@+id/drawer_fragment_iv_chat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/drawer_chat"
+            android:textAppearance="@style/TextViewMenuList"
+            android:layout_marginLeft="40dp"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorLine"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+    <!--切换主题-->
+    <TextView
+        android:id="@+id/drawer_fragment_tv_chtheme"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/drawer_change_theme"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:textAppearance="@style/TextViewMenuList"/>
+    <!--设置-->
+    <TextView
+        android:id="@+id/drawer_fragment_tv_setting"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/action_settings"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:textAppearance="@style/TextViewMenuList"/>
+</LinearLayout>
