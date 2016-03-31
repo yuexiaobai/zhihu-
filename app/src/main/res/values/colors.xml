@@ -9,4 +9,9 @@
     <color name="mainnewsrefreshbackgroud">#80847b7b</color>
     <color name="main_news_item_bd">#ffffff</color>
     <color name="main_news_refresh">#0d07ef</color>
+    <color name="item_lv_main_come_from_text_color">#bbbbbc</color>
+    <color name="item_lv_main_area">#4e4ed7</color>
+    <color name="item_lv_main_recommand_num_bg_color">#207a89fa</color>
+    <color name="item_lv_main_news_content_color">#1a1818</color>
+    <color name="item_lv_main_item_bg">#80f1ecec</color>
 </resources>

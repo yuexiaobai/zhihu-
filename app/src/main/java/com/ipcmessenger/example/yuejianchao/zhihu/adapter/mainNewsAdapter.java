@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.ipcmessenger.example.yuejianchao.zhihu.R;
 import com.ipcmessenger.example.yuejianchao.zhihu.activity.MainActivity;
 import com.ipcmessenger.example.yuejianchao.zhihu.data.StoriesEntity;
+import com.ipcmessenger.example.yuejianchao.zhihu.widget.CircleBitmapDisplayer;
 import com.ipcmessenger.example.yuejianchao.zhihu.widget.CircleImageView;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -37,7 +38,7 @@ public class mainNewsAdapter extends BaseAdapter{
         imageLoader.init(ImageLoaderConfiguration.createDefault(context));
         options = new DisplayImageOptions.Builder()
                 .cacheInMemory(true)
-                .cacheOnDisk(true)
+                .cacheOnDisk(true).displayer(new CircleBitmapDisplayer())
                 .build();
     }
 
@@ -67,11 +68,11 @@ public class mainNewsAdapter extends BaseAdapter{
         if(viewHolder==null){
             viewHolder=new ViewHolder();
             convertView= LayoutInflater.from(context).inflate(R.layout.item_lv_main_fragment,parent,false);
-            viewHolder.ivHead=(ImageView)convertView.findViewById(R.id.item_lv_main_fragment_head);
-            viewHolder.tvComeFrom=(TextView)convertView.findViewById(R.id.item_lv_main_fragment_tv_come_from);
-            viewHolder.tvcommentNum=(TextView)convertView.findViewById(R.id.item_lv_main_fragment_tv_comment_num);
-            viewHolder.tvNewsContent=(TextView)convertView.findViewById(R.id.item_lv_main_fragment_tv_news_content);
-            viewHolder.tvNewsTitle=(TextView)convertView.findViewById(R.id.item_lv_main_fragment_tv_news_title);
+            viewHolder.ivHead=(ImageView)convertView.findViewById(R.id.item_lv_main_user_fragment_cv_head);
+            viewHolder.tvComeFrom=(TextView)convertView.findViewById(R.id.item_lv_main_user_fragment_tv_area);
+            viewHolder.tvcommentNum=(TextView)convertView.findViewById(R.id.item_lv_main_fragment_tv_recomand_num);
+            viewHolder.tvNewsContent=(TextView)convertView.findViewById(R.id.item_lv_main_fragment_tv_content);
+            viewHolder.tvNewsTitle=(TextView)convertView.findViewById(R.id.item_lv_main_fragment_tv_title);
             convertView.setTag(viewHolder);
         }else{
             viewHolder=(ViewHolder)convertView.getTag();
@@ -79,9 +80,9 @@ public class mainNewsAdapter extends BaseAdapter{
         StoriesEntity entity = datas.get(position);
         imageLoader.displayImage(entity.getImages().get(0), viewHolder.ivHead, options);
         viewHolder.tvNewsTitle.setText(entity.getTitle());
-        viewHolder.tvNewsContent.setText("暂时还没有获取");
+        //viewHolder.tvNewsContent.setText("暂时还没有获取");
         viewHolder.tvcommentNum.setText("111");
-        viewHolder.tvComeFrom.setText("来自程序员");
+        viewHolder.tvComeFrom.setText("程序员");
         return convertView;
     }
 

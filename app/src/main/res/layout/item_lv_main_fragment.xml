@@ -1,17 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/main_news_item_bd"
-    android:layout_marginTop="10dp">
+    android:layout_height="wrap_content"
+    android:background="@color/item_lv_main_item_bg"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:background="@color/main_news_item_bd">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:id="@+id/item_lv_main_user_fragment_cv_head"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@mipmap/test"
+                    android:layout_alignParentLeft="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/item_lv_main_come_from"
+                    android:textColor="@color/item_lv_main_come_from_text_color"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="5dp"/>
+                <TextView
+                    android:id="@+id/item_lv_main_user_fragment_tv_area"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/item_lv_main_area"
+                    android:text="Android"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/recomand_num_bg"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical">
+                <TextView
+                    android:id="@+id/item_lv_main_fragment_tv_recomand_num"
+                    android:layout_width="25dp"
+                    android:layout_height="19dp"
+                    android:text="300"
+                    android:textColor="@color/item_lv_main_area"
+                    android:textSize="11sp"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="9dp">
+            <TextView
+                android:id="@+id/item_lv_main_fragment_tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="bold"
+                android:textColor="#000000"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:textSize="15sp"
+                android:text="Android开发的时候你遇到过什么相见恨晚的工具或网站"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="9dp">
+            <TextView
+                android:id="@+id/item_lv_main_fragment_tv_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="4"
+                android:textColor="@color/item_lv_main_news_content_color"
+                android:textSize="14sp"
+                android:ellipsize="end"
+                android:text="哇，原来我已经潜水2年多了，还是需要养成习惯写写东西啊。最近在做一个java web service项目，需要用到jason，本人对java不是特别精通，于是开始搜索一些java平台的json类库。
+发现了google的gson，因为之前对于protocolbuf有一些了解，带着一些好奇心，我开始使用了gson。经过较，gson和其他现有java json类库最大的不同时gson需要序列化得实体类不需要使用annotation来标识需要序列化得字段，同时gson又可以通过使用annotation来灵活配置需要序列化的字段。近在做一个java web service项目，需要用到jason，本人对java不是特别精通，于是开始搜索一些java平台的json类库。"/>
+        </LinearLayout>
+    </LinearLayout>
 
 
+<!--
     <LinearLayout
         android:id="@+id/item_lv_main_fragment_ll_right"
         android:layout_width="30dp"
         android:layout_alignParentRight="true"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <ImageView
             android:id="@+id/item_lv_main_fragment_head"
@@ -31,7 +127,8 @@
         android:layout_toLeftOf="@+id/item_lv_main_fragment_ll_right"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/item_lv_main_fragment_tv_come_from"
@@ -51,5 +148,5 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="content"/>
-    </LinearLayout>
-</RelativeLayout>
+    </LinearLayout>-->
+</LinearLayout>

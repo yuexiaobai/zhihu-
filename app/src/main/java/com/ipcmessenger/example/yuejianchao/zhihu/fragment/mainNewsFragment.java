@@ -1,6 +1,8 @@
 package com.ipcmessenger.example.yuejianchao.zhihu.fragment;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -25,9 +28,11 @@ import com.loopj.android.http.TextHttpResponseHandler;
 
 import java.util.ArrayList;
 import java.util.List;
+
 @SuppressLint("ValidFragment")
 public class mainNewsFragment extends Fragment {
     public static final String TAG = mainNewsFragment.class.getSimpleName();
+    public static Boolean isrefresh = false;
     private ListView newListView;
     private boolean isLoading = false;
     private mainNewsAdapter adapter;
@@ -38,9 +43,11 @@ public class mainNewsFragment extends Fragment {
     private Latest latest;
     private SwipeRefreshLayout refreshLayout;
 
-    public mainNewsFragment(){}
-    public mainNewsFragment(SwipeRefreshLayout s){
-        this.refreshLayout=s;
+    public mainNewsFragment() {
+    }
+
+    public mainNewsFragment(SwipeRefreshLayout s) {
+        this.refreshLayout = s;
     }
 
 
@@ -56,6 +63,27 @@ public class mainNewsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_main_news, container, false);
         newListView = (ListView) view.findViewById(R.id.fragment_main_news_lv);
+        newListView.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                boolean enable = false;
+                if(newListView != null && newListView.getChildCount() > 0){
+                    // check if the first item of the list is visible
+                    boolean firstItemVisible = newListView.getFirstVisiblePosition() == 0;
+                    // check if the top of the first item is visible
+                    boolean topOfFirstItemVisible = newListView.getChildAt(0).getTop() == 0;
+                    // enabling or disabling the refresh layout
+                    enable = firstItemVisible && topOfFirstItemVisible;
+                }
+                refreshLayout.setEnabled(enable);
+
+            }
+        });
         rlrefresh = (LinearLayout) view.findViewById(R.id.fragment_main_news_rl_refresh);
         tvrefresh = (TextView) view.findViewById(R.id.fragment_main_news_tv_refresh);
         adapter = new mainNewsAdapter(getActivity());
@@ -107,8 +135,9 @@ public class mainNewsFragment extends Fragment {
             showRefreshLayout();
         }
     }
+
     //如果没有数据或者没有联网就调用这个函数
-    public void showRefreshLayout(){
+    public void showRefreshLayout() {
         rlrefresh.setVisibility(View.VISIBLE);
         tvrefresh.setOnClickListener(new View.OnClickListener() {
             @Override
