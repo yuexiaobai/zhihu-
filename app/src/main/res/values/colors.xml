@@ -8,4 +8,5 @@
     <color name="textcolorblank">#000000</color>
     <color name="mainnewsrefreshbackgroud">#80847b7b</color>
     <color name="main_news_item_bd">#ffffff</color>
+    <color name="main_news_refresh">#0d07ef</color>
 </resources>

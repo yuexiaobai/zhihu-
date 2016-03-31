@@ -4,17 +4,15 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.ipcmessenger.example.yuejianchao.zhihu.R;
@@ -34,8 +32,8 @@ public class mainNewsFragment extends Fragment {
     private boolean isLoading = false;
     private mainNewsAdapter adapter;
     private List<StoriesEntity> list;
-    private RelativeLayout rlrefresh;
-    private ImageView ivrefresh;
+    private LinearLayout rlrefresh;
+    private TextView tvrefresh;
     private StoriesEntity storiesEntity = new StoriesEntity();
     private Latest latest;
     private SwipeRefreshLayout refreshLayout;
@@ -58,8 +56,8 @@ public class mainNewsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_main_news, container, false);
         newListView = (ListView) view.findViewById(R.id.fragment_main_news_lv);
-        rlrefresh = (RelativeLayout) view.findViewById(R.id.fragment_main_news_rl_refresh);
-        ivrefresh = (ImageView) view.findViewById(R.id.fragment_main_news_iv_refresh);
+        rlrefresh = (LinearLayout) view.findViewById(R.id.fragment_main_news_rl_refresh);
+        tvrefresh = (TextView) view.findViewById(R.id.fragment_main_news_tv_refresh);
         adapter = new mainNewsAdapter(getActivity());
         newListView.setAdapter(adapter);
         list = new ArrayList<>();
@@ -112,29 +110,11 @@ public class mainNewsFragment extends Fragment {
     //如果没有数据或者没有联网就调用这个函数
     public void showRefreshLayout(){
         rlrefresh.setVisibility(View.VISIBLE);
-        ivrefresh.setOnClickListener(new View.OnClickListener() {
+        tvrefresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Animation anim=AnimationUtils.loadAnimation(getActivity(), R.anim.news_refresh_anim);
-                ivrefresh.startAnimation(anim);
-                anim.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-                        rlrefresh.setVisibility(View.GONE);
-                        loadContent();
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-
-                    }
-                });
-
+                rlrefresh.setVisibility(View.GONE);
+                loadContent();
             }
         });
     }
